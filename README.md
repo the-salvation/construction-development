@@ -29,3 +29,15 @@ src/
 ├── styles/               # Global styles and CSS modules
 └── services/             # External service integrations
 ```
+
+## VSCode Settings
+
+Add the following to your VSCode settings.json:
+
+```json
+"prettier.requireConfig": true,
+  "eslint.experimental.useFlatConfig": true,
+  "eslint.options": {
+    "overrideConfigFile": "eslint.config.mjs"
+  }
+```
