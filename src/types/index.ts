@@ -9,7 +9,7 @@ export interface User {
   updatedAt: Date;
 }
 
-export interface Project {
+export interface Apartment {
   id: string;
   name: string;
   description: string;

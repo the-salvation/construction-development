@@ -58,6 +58,8 @@ const eslintConfig = [
       'react/prop-types': 'off',
       '@typescript-eslint/no-shadow': 'off',
       'prefer-const': 'off',
+      // Disable line ending errors
+      'linebreak-style': 'off',
 
       // Prettier rules
       'prettier/prettier': ['error', prettierConfig],

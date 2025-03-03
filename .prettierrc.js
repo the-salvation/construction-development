@@ -25,4 +25,5 @@ module.exports = {
   importOrderTypeImportsToTop: false, // Set this to false if you want type imports to be sorted with the rest of the imports
   importOrderCaseInsensitive: true,
   importOrderParserPlugins: ['typescript', 'jsx', 'decorators-legacy', 'classProperties'],
+  endOfLine: 'auto',
 };
