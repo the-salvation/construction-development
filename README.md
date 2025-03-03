@@ -90,6 +90,8 @@ The Redux store is configured in `src/lib/redux/store.ts` using Redux Toolkit's 
 2. **Git Workflow**:
 
    - Create feature branches from `develop`
+   - 1 feature = 1 branch
+   - Name branch like this: `feat/feature-name` or `fix/bug-name`
    - Submit pull requests for code review
    - Ensure everything is working before merging
 
