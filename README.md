@@ -159,6 +159,8 @@ This project uses LF line endings. If you're experiencing issues with CRLF line 
 
 ### Importing Components
 
+For available import shortcucks please see `tsconfig.json` => `paths`
+
 Components can be imported directly from the components directory:
 
 ```tsx
