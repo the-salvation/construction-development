@@ -116,9 +116,7 @@ Add the following to your VSCode settings.json:
 
 This project uses LF line endings. If you're experiencing issues with CRLF line endings, check:
 
-1. The `.editorconfig` file is properly configured
-2. Your Git configuration: `git config core.autocrlf false`
-3. The `endOfLine` setting in `.prettierrc.js` is set to `"lf"`
+1. The `endOfLine` setting in `.prettierrc.js` is set to `"lf"`
 
 ## Import/export components
 
@@ -126,3 +124,62 @@ This project uses LF line endings. If you're experiencing issues with CRLF line 
 -- in components folder should be index.ts file that re-exports all components, so every component/form/layout could be exported just from @/components
 
 `import { ComponentName, FormName } from @/components`
+
+## Font System
+
+Last updated: March 3, 2024
+
+The project uses a flexible font system that makes it easy to change fonts throughout the application.
+
+### Font Configuration
+
+Fonts are configured in `src/lib/fonts/index.ts`. The system uses three font categories:
+
+- **Primary Font**: Used for body text and general content
+- **Heading Font**: Used for headings and titles
+- **Accent Font**: Used for special elements and emphasis
+
+### How to Change Fonts
+
+To change the fonts used in the application:
+
+1. Open `src/lib/fonts/index.ts`
+2. Update the `fonts` object to use different font options:
+
+```typescript
+export const fonts = {
+  primary: fontOptions.roboto, // Change to any other font option
+  heading: fontOptions.montserrat, // Change to any other font option
+  accent: fontOptions.poppins, // Change to any other font option
+};
+```
+
+### Available Fonts
+
+The system includes several pre-configured Google Fonts:
+
+- Inter
+- Roboto
+- Poppins
+- Montserrat
+- Open Sans
+
+### Adding Custom Fonts
+
+To add a custom font:
+
+1. Add the font files to the `public/fonts/` directory
+2. Configure the font in `src/lib/fonts/index.ts` using the `localFont` function
+3. Add the font to the `fontOptions` object
+
+### Typography Components
+
+The project includes reusable typography components in `src/components/ui/Typography.tsx`:
+
+- `<Heading1>`, `<Heading2>`, `<Heading3>`: For different heading levels
+- `<Paragraph>`: For body text
+- `<AccentText>`: For text that needs special emphasis
+
+### Font Documentation
+
+Visit `/design/fonts` in the application to see a visual documentation of all fonts and typography components.

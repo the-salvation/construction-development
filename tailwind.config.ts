@@ -31,6 +31,11 @@ const config: Config = {
           foreground: 'hsl(var(--accent-foreground))',
         },
       },
+      fontFamily: {
+        sans: ['var(--font-roboto)', 'sans-serif'],
+        heading: ['var(--font-montserrat)', 'sans-serif'],
+        accent: ['var(--font-poppins)', 'sans-serif'],
+      },
     },
   },
   plugins: [],
