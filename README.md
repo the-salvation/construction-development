@@ -118,6 +118,30 @@ Add the following to your VSCode settings.json:
 }
 ```
 
+## Code Formatting
+
+This project uses Prettier for code formatting with the following configuration:
+
+- **Import Order**: The `@serverless-guru/prettier-plugin-import-order` plugin automatically sorts imports in a consistent way
+- **Formatting Commands**:
+  - `yarn format`: Format all files
+  - `yarn format:check`: Check if files are formatted correctly
+
+### Prettier Configuration
+
+The project includes a `.prettierrc.js` file with the following settings:
+
+```js
+module.exports = {
+  semi: true,
+  singleQuote: true,
+  tabWidth: 2,
+  trailingComma: 'es5',
+  endOfLine: 'lf',
+  printWidth: 100,
+};
+```
+
 ## Line Endings
 
 This project uses LF line endings. If you're experiencing issues with CRLF line endings, check:
