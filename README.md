@@ -1,3 +1,5 @@
+# Construction Project Management
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
@@ -38,6 +40,8 @@ src/
 └── services/             # External service integrations
 ```
 
+## Redux Implementation
+
 ### Store Structure
 
 The Redux store is configured in `src/lib/redux/store.ts` using Redux Toolkit's `configureStore`. The store combines:
@@ -61,23 +65,23 @@ The Redux store is configured in `src/lib/redux/store.ts` using Redux Toolkit's 
 
 3. **Using in Components**:
 
-   ```tsx
-   import { useAppDispatch, useAppSelector } from '@/lib/redux/hooks';
-   import { useGetApartmentsQuery } from '@/lib/redux/services/apartmentsApi';
-   import { setTheme } from '@/lib/redux/slices/uiSlice';
+```tsx
+import { useAppDispatch, useAppSelector } from '@/lib/redux/hooks';
+import { useGetApartmentsQuery } from '@/lib/redux/services/apartmentsApi';
+import { setTheme } from '@/lib/redux/slices/uiSlice';
 
-   function MyComponent() {
-     const dispatch = useAppDispatch();
-     const theme = useAppSelector(state => state.ui.theme);
-     const { data, isLoading } = useGetApartmentsQuery();
+function MyComponent() {
+  const dispatch = useAppDispatch();
+  const theme = useAppSelector(state => state.ui.theme);
+  const { data, isLoading } = useGetApartmentsQuery();
 
-     const toggleTheme = () => {
-       dispatch(setTheme(theme === 'light' ? 'dark' : 'light'));
-     };
+  const toggleTheme = () => {
+    dispatch(setTheme(theme === 'light' ? 'dark' : 'light'));
+  };
 
-     // Component logic
-   }
-   ```
+  // Component logic
+}
+```
 
 ## Development Workflow
 
@@ -105,10 +109,12 @@ The Redux store is configured in `src/lib/redux/store.ts` using Redux Toolkit's 
 Add the following to your VSCode settings.json:
 
 ```json
-"prettier.requireConfig": true,
-"eslint.experimental.useFlatConfig": true,
-"eslint.options": {
-  "overrideConfigFile": "eslint.config.mjs"
+{
+  "prettier.requireConfig": true,
+  "eslint.experimental.useFlatConfig": true,
+  "eslint.options": {
+    "overrideConfigFile": "eslint.config.mjs"
+  }
 }
 ```
 
@@ -116,13 +122,80 @@ Add the following to your VSCode settings.json:
 
 This project uses LF line endings. If you're experiencing issues with CRLF line endings, check:
 
-1. The `.editorconfig` file is properly configured
-2. Your Git configuration: `git config core.autocrlf false`
-3. The `endOfLine` setting in `.prettierrc.js` is set to `"lf"`
+- The `endOfLine` setting in `.prettierrc.js` is set to `"lf"`
 
-## Import/export components
+## Component Structure
 
--- Every component should have following structure: ComponentFolder/ComponentName.tsx, styles.module.scss (if needed)
--- in components folder should be index.ts file that re-exports all components, so every component/form/layout could be exported just from @/components
+### Organization
 
-`import { ComponentName, FormName } from @/components`
+- Every component should have the following structure:
+  - `ComponentFolder/ComponentName.tsx`
+  - `styles.module.scss` (if needed)
+- In the `components` folder, there should be an `index.ts` file that re-exports all components
+
+### Importing Components
+
+Components can be imported directly from the components directory:
+
+```tsx
+import { ComponentName, FormName } from '@/components';
+```
+
+## Font System
+
+_Last updated: March 3, 2024_
+
+The project uses a flexible font system that makes it easy to change fonts throughout the application.
+
+### Font Configuration
+
+Fonts are configured in `src/lib/fonts/index.ts`. The system uses three font categories:
+
+- **Primary Font**: Used for body text and general content
+- **Heading Font**: Used for headings and titles
+- **Accent Font**: Used for special elements and emphasis
+
+### How to Change Fonts
+
+To change the fonts used in the application:
+
+1. Open `src/lib/fonts/index.ts`
+2. Update the `fonts` object to use different font options:
+
+```typescript
+export const fonts = {
+  primary: fontOptions.roboto, // Change to any other font option
+  heading: fontOptions.montserrat, // Change to any other font option
+  accent: fontOptions.poppins, // Change to any other font option
+};
+```
+
+### Available Fonts
+
+The system includes several pre-configured Google Fonts:
+
+- Inter
+- Roboto
+- Poppins
+- Montserrat
+- Open Sans
+
+### Adding Custom Fonts
+
+To add a custom font:
+
+1. Add the font files to the `public/fonts/` directory
+2. Configure the font in `src/lib/fonts/index.ts` using the `localFont` function
+3. Add the font to the `fontOptions` object
+
+### Typography Components
+
+The project includes reusable typography components in `src/components/ui/Typography.tsx`:
+
+- `<Heading1>`, `<Heading2>`, `<Heading3>`: For different heading levels
+- `<Paragraph>`: For body text
+- `<AccentText>`: For text that needs special emphasis
+
+### Font Documentation
+
+Visit `/design/fonts` in the application to see a visual documentation of all fonts and typography components.

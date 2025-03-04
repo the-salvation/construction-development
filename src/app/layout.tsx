@@ -1,10 +1,8 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 
 import '@/styles/globals.css';
+import { getFontVariables } from '@/lib/fonts';
 import { ReduxProvider } from '@/lib/redux/provider';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Construction Project',
@@ -16,11 +14,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const fontVariables = getFontVariables();
+
+  // TODO: change lang to pl
   return (
-    <html lang="en">
-      <body className={`${inter.className} antialiased`}>
+    <html lang="en" className={fontVariables}>
+      <body className="antialiased">
         <ReduxProvider>
-          <main className="min-h-screen bg-background">{children}</main>
+          <main className="min-h-screen bg-background font-sans">{children}</main>
         </ReduxProvider>
       </body>
     </html>
