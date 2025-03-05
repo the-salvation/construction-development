@@ -19,11 +19,11 @@ export default function RootLayout({
   // TODO: change lang to pl
   return (
     <html lang="en" className={fontVariables}>
-      <body className="antialiased">
-        <ReduxProvider>
-          <main className="min-h-screen bg-background font-sans">{children}</main>
-        </ReduxProvider>
-      </body>
+      <ReduxProvider>
+        <body className="antialiased">
+          <div className="min-h-screen bg-background font-sans">{children}</div>
+        </body>
+      </ReduxProvider>
     </html>
   );
 }
