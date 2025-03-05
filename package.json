@@ -11,13 +11,17 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.0",
+    "@heroicons/react": "^2.2.0",
     "@reduxjs/toolkit": "^2.6.0",
     "@typescript-eslint/eslint-plugin": "^8.26.0",
     "@typescript-eslint/parser": "^8.26.0",
+    "clsx": "^2.1.1",
     "eslint-config-prettier": "^10.0.2",
     "eslint-plugin-prettier": "^5.2.3",
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.2.0",
+    "framer-motion": "^12.4.10",
     "next": "15.2.0",
     "prettier": "^3.5.3",
     "react": "^19.0.0",
